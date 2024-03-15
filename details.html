@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shipping Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('https://images.pexels.com/photos/2091159/pexels-photo-2091159.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1.jpg'); /* Background image source: Unsplash */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #333; /* Default text color */
+        }
+
+        .content {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #1e88e5;
+            margin-bottom: 20px;
+        }
+
+        .topic-content {
+            padding: 20px;
+        }
+
+        .status-box {
+            margin-bottom: 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background-color: #fff; /* White background */
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2; /* Light gray background for table header */
+        }
+
+        /* Add styles for table rows with odd and even indexes */
+        tbody tr:nth-child(odd) {
+            background-color: #f9f9f9; /* Light gray background for odd rows */
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: #e0e0e0; /* Darker gray background for even rows */
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent black background */
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+
+        /* Close button styles */
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+        }
+
+        /* AI logo styles */
+        .ai-logo {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background-image: url('ai.png');
+            border-radius: 40px ;
+            background-size: cover;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h2>Shipping Details</h2>
+        <div class="topic-content" id="topic1">
+            <h3>Package Details</h3>
+            <div class="status-box shipped"><strong>Shipped:</strong> <span>12</span></div>
+            <div class="status-box in-transit"><strong>In Transit:</strong> <span>19</span></div>
+            <div class="status-box out-for-delivery"><strong>Out for Delivery:</strong> <span>3</span></div>
+            <div class="status-box delivered"><strong>Delivered:</strong> <span>5</span></div>
+            <div class="Net Quantity"><strong>Net Quantity:</strong> <span>31</span></div>
+
+            <h3>Shipping Products</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Product Name</th>
+                        <th>Quantity</th>
+                        <th>Weight</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Computers</td>
+                        <td>3</td>
+                        <td>2.5 Metic tonne</td>
+                    </tr>
+                
+                     <tr>
+                        <td>Cars</td>
+                        <td>4</td>
+                        <td>1.8 Metic tonne</td>
+                    </tr>
+                    <tr>
+                        <td>Machinery</td>
+                        <td>5</td>
+                        <td>3.2 Metic tonne</td>
+                    </tr>
+                    <tr>
+                        <td>Clothes</td>
+                        <td>1</td>
+                        <td>0.8 Metric tonne</td>
+                    </tr>
+                    <tr>
+                        <td>Furniture</td>
+                        <td>4</td>
+                        <td>2.1 Metric tonne </td>
+                    </tr>
+                    <tr>
+                        <td>Medicines</td>
+                        <td>2</td>
+                        <td>1.6 Metric tonne</td>
+                    </tr>
+                    <tr>
+                        <td>Meat</td>
+                        <td>3</td>
+                        <td>2.2 Metric tonne</td>
+                    </tr>
+                    <tr>
+                        <td>steel roll</td>
+                        <td>1</td>
+                        <td>1.0 Metric tonne</td>
+                    </tr>
+                    <tr>
+                        <td>Chemicals</td>
+                        <td>6</td>
+                        <td>4.3 Metric tonne</td>
+                    </tr>
+                    <tr>
+                        <td>Liquor</td>
+                        <td>2</td>
+                        <td>1.7 Metric tonne</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+    <!-- AI Logo -->
+    <div class="ai-logo" id="aiLogo"></div>
+
+    <!-- Modal HTML -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>may i help you?</p>
+            <!-- Add more content or interaction options here -->
+        </div>
+    </div>
+
+    <script>
+        // Get the modal
+        var modal = document.getElementById("myModal");
+
+        // Get the close button
+        var span = document.getElementsByClassName("close")[0];
+
+        // Show the modal when the AI logo is clicked
+        var aiLogo = document.getElementById("aiLogo");
+        aiLogo.addEventListener("click", function() {
+            modal.style.display = "block";
+        });
+
+        // Close the modal when the close button is clicked
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        // Close the modal when the user clicks anywhere outside of it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="OIP2.png" type="image/png">
+    <title>Shipping Website - Login</title>
+    <style>
+        /* Styles for the background image */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('https://hqew1mysai03b2c.blob.core.windows.net/ci-cd/images/msc_vessel_1920x1080.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            height: 100vh;
+        }
+
+    
+        .container {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            width: 400px;
+            max-width: calc(100% - 40px);
+            text-align: center;
+            margin-right: 20px;
+        }
+
+    
+        h2 {
+            margin-top: 0;
+            color: #1e88e5;
+            margin-bottom: 20px;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            outline: none;
+        }
+
+        .login-button, .signup-button, .forget-password-button {
+            width: 100%;
+            background-color: #1e88e5;
+            color: white;
+            padding: 14px 20px;
+            margin: 14px 0;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            text-decoration: none;
+            display: inline-block;
+            transition: background-color 0.3s ease;
+        }
+
+        .login-button:hover, .signup-button:hover, .forget-password-button:hover {
+            background-color: #0d47a1;
+        }
+
+        .link-text {
+            color: #666;
+            text-decoration: none;
+        }
+
+        .link-text:hover {
+            text-decoration: underline;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Login form 1 -->
+    <div class="container">
+        <h2>Shipping Website - Login</h2>
+        <form id="login-form" action="/login" method="post" class="form-group">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+
+            <button type="submit" class="login-button">Login</button>
+        </form>
+
+        <p>Don't have an account? <a href="002.html" class="link-text">Signup</a></p>
+        <p>Forgot your password? <a href="003.html" class="link-text">Reset Password</a></p>
+    </div>
+
+    <!-- Login form 2 -->
+    <div class="container" style="display:none;">
+        <h2>Shipping Website - Login</h2>
+        <form id="login-form-2" action="/login" method="post" class="form-group">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+
+            <button type="submit" class="login-button">Login</button>
+        </form>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Login form 1 event listener
+            document.getElementById('login-form').addEventListener('submit', function (event) {
+                event.preventDefault();
+
+                const username = document.getElementById('username').value;
+                const password = document.getElementById('password').value;
+
+                // For demonstration purposes only.
+                if (username === 'admin' && password === 'admin') {
+                    // Redirect to the user account page
+                    window.location.href = 'user_account.html';
+                } else {
+                    alert('Invalid username or password.');
+                }
+            });
+
+            // Login form 2 event listener
+            document.getElementById('login-form-2').addEventListener('submit', function (event) {
+                event.preventDefault();
+
+                const username = document.getElementById('username').value;
+                const password = document.getElementById('password').value;
+
+                // For demonstration purposes only.
+                if (username === 'admin' && password === 'admin') {
+                    // Redirect to the user account page
+                    window.location.href = 'user_account.html';
+                } else {
+                    alert('Invalid username or password.');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

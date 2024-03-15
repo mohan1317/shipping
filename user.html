@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="OIP2.png " type="image/png">
+<title>Shipping Service</title>
+<style>
+  /* CSS for layout */
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa; /* Light gray background */
+    color: #333; /* Text color */
+  }
+
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 20px auto; /* Centering the container horizontally */
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+
+  .topics {
+    background-color: #f2f2f2; /* Light gray background */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .content {
+    background-color: #f2f2f2; /* Light gray background */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .topic-item {
+    cursor: pointer;
+    margin-bottom: 10px;
+    padding: 15px;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .topic-item:hover {
+    background-color: #e9ecef; /* Light gray hover background */
+  }
+
+  .topic-item h3 {
+    margin: 0;
+    font-size: 18px;
+    color: #333; /* Topic title color */
+  }
+
+  .topic-content {
+    font-size: 16px;
+  }
+
+  /* CSS for hiding content */
+  .hidden {
+    display: none;
+  }
+
+  /* CSS for status colors */
+  .status-box {
+    display: inline-block;
+    width: 100px;
+    padding: 10px;
+    margin-right: 10px;
+    border-radius: 6px;
+    text-align: center;
+    color: #fff; /* Text color */
+  }
+
+  .shipped {
+    background-color: #28a745; /* Green for shipped status */
+  }
+
+  .in-transit {
+    background-color: #ffc107; /* Yellow for in transit status */
+  }
+
+  .out-for-delivery {
+    background-color: #007bff; /* Blue for out for delivery status */
+  }
+
+  .delivered {
+    background-color: #17a2b8; /* Cyan for delivered status */
+  }
+
+  /* Additional styles for tracking details */
+  .tracking-details {
+    margin-top: 20px;
+  }
+
+  .tracking-details h3 {
+    margin-bottom: 10px;
+  }
+
+  .tracking-details p {
+    margin: 5px 0;
+  }
+
+  /* Additional styles for website section */
+  .website {
+    margin-top: 20px;
+  }
+
+  .website h3 {
+    margin-bottom: 10px;
+  }
+
+  .website p {
+    margin: 5px 0;
+  }
+
+  /* CSS for map */
+  #map {
+    height: 400px;
+    width: 100%;
+  }
+
+  /* CSS for copy link button */
+  .copy-link-button {
+    display: block;
+    margin-top: 10px;
+    padding: 10px 15px;
+    background-color: #007bff; /* Blue for copy link button */
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+
+    
+  }
+  .GetDetails-button{
+     display: block;
+    margin-top: 10px;
+    padding: 10px 15px;
+    background-color: #007bff; /* Blue for copy link button */
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    
+  }
+
+  .copy-link-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+  }
+
+  .GetDetails-button{
+     background-color: #0056b3; /* Darker blue on hover */
+
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="topics">
+    <h2>Shipping Services</h2>
+    <div class="topic-item" data-topic="topic1">
+      <h3>Package Details</h3>
+      <p>View package details.</p>
+    </div>
+    <div class="topic-item" data-topic="topic2">
+      <h3>Graph</h3>
+      <p>View package status graph.</p>
+    </div>
+    <div class="topic-item" data-topic="topic3">
+      <h3>Tracking Details</h3>
+      <p>View tracking details.</p>
+    </div>
+    <div class="topic-item" data-topic="topic4">
+      <h3>Website</h3>
+      <p>Visit our website.</p>
+    </div>
+  </div>
+  <div class="content">
+    <h2>Shipping Details</h2>
+<div class="content">
+    <h2>Shipping Details</h2>
+    <div class="topic-content" id="topic1">
+        <h3>Package Details</h3>
+        <div class="status-box shipped"><strong>Shipped:</strong> <span>12</span></div>
+        <div class="status-box in-transit"><strong>In Transit:</strong> <span>19</span></div>
+        <div class="status-box out-for-delivery"><strong>Out for Delivery:</strong> <span>3</span></div>
+        <div class="status-box delivered"><strong>Delivered:</strong> <span>5</span></div>
+        <a href="details.html">
+          
+          <button class="GetDetails-button" onclick="details.html">Get Details</button>
+        </a>
+    </div>
+</div>
+
+    <div class="topic-content hidden" id="topic2">
+      <h3>Graph</h3>
+      <!-- Graph Container -->
+      <div id="graph-container">
+          <h2>Package Status Graph</h2>
+          <canvas id="package-graph" width="400" height="200"></canvas>
+      </div>
+    </div>
+    <div class="topic-content hidden" id="topic3">
+      <div class="tracking-details">
+        <h3>Tracking Details</h3>
+        <p>Tracking ID: ABC123456789</p>
+        <p>Expected Delivery Date: March 20, 2024</p>
+        <p>Current Location: Distribution Center</p>
+      </div>
+      <!-- Google Maps iframe -->
+      <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d61555340.10683309!2d36.24985995571672!3d-19.668307268681612!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1710344443757!5m2!1sen!2sin" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <!-- Copy Link Button -->
+      <button class="copy-link-button" onclick="copyMapLink()">Copy Link</button>
+    </div>
+    <div class="topic-content hidden" id="topic4">
+      <div class="website">
+        <h3>Website</h3>
+        <p>Visit our website <a href="https://example.com">here</a>.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+    <div class="topics">
+      <!-- Existing topics content -->
+    </div>
+    <div class="content">
+      <!-- Existing content -->
+      <!-- About Us section -->
+      <div class="about-us">
+        <h2>About Us</h2>
+        <p>Never sit back after your first success because there are a thousand mouths waiting to say that the first one was just luck.</p>
+        <!-- Add photos of the company owners with quotes -->
+        <div class="company-owners">
+          <div class="owner">
+            <img src="NAR.jpg" alt="Company Owner 1">
+            <p>"Your power lies in the fact that no one is you."</p>
+          </div>
+          <div class="owner">
+            <img src="MOH.jpg" alt="Company Owner 2">
+            <p>"If you want to shine like a sun, first burn like a sun."</p>
+          </div>
+          <div class="owner">
+            <img src="VEN.jpg" alt="Company Owner 3">
+            <p>"The only way for us to find off these assaults is to use similar means"</p>
+          </div>
+        </div>
+    </div>
+<style>.company-owners {
+    display: flex;
+    justify-content: center; /* Align images horizontally in the center */
+    gap: 20px; /* Space between images */
+  }
+  
+  .company-owners .owner {
+    text-align: center; /* Center align the quote */
+  }
+  
+  .company-owners img {
+    width: 200px; /* Adjust the width of the images as needed */
+    height: 200px; /* Set a fixed height equal to the width */
+    object-fit: cover; /* Ensure the image covers the entire area */
+    border-radius: 12px; /* Make the images circular */
+  }
+  </style>    
+  
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+      // Generate random data for the graph
+      const data = {
+          labels: ['Shipped', 'In Transit', 'Out for Delivery', 'Delivered'],
+          datasets: [{
+              label: 'Package Status',
+              data: [12, 19, 3, 5],
+              backgroundColor: [
+                  '#28a745', // Shipped status (Green)
+                  '#ffc107', // In transit status (Yellow)
+                  '#007bff', // Out for delivery status (Blue)
+                  '#17a2b8', // Delivered status (Cyan)
+              ],
+              borderColor: [
+                  '#28a745', // Shipped status
+                  '#ffc107', // In transit status
+                  '#007bff', // Out for delivery status
+                  '#17a2b8', // Delivered status
+              ],
+              borderWidth: 1
+          }]
+      };
+
+      // Render the graph
+      const ctx = document.getElementById('package-graph').getContext('2d');
+      new Chart(ctx, {
+          type: 'bar',
+          data: data,
+          options: {
+              scales: {
+                  yAxes: [{
+                      ticks: {
+                          beginAtZero: true
+                      }
+                  }]
+              }
+          }
+      });
+  });
+
+  // Function to copy map link
+  function copyMapLink() {
+    const mapUrl = window.location.href;
+    // Create a temporary input element
+    const tempInput = document.createElement('input');
+    tempInput.value = mapUrl;
+    document.body.appendChild(tempInput);
+    tempInput.select();
+    document.execCommand('copy');
+    document.body.removeChild(tempInput);
+    alert('Map link copied to clipboard!');
+  }
+</script>
+<script>
+    // JavaScript for showing content based on selected topic
+    const topicItems = document.querySelectorAll('.topic-item');
+    const topicContents = document.querySelectorAll('.topic-content');
+  
+    topicItems.forEach(item => {
+      item.addEventListener('click', () => {
+        const selectedTopic = item.dataset.topic;
+        topicContents.forEach(content => {
+          if (content.id === selectedTopic) {
+            content.classList.remove('hidden');
+            // If the selected topic is tracking details, initialize the map
+            if (selectedTopic === 'topic3') {
+              initializeMap();
+            }
+          } else {
+            content.classList.add('hidden');
+          }
+        });
+      });
+    });
+</script>
+
+</body>
+</html>

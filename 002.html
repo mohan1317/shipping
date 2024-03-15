@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="OIP2.png" type="image/png">
+    <title>Shipping Website - Signup</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('https://alfa-logistics-family.com/wp-content/uploads/2022/03/shutterstock_1656134434a-scaled.jpg');
+            background-size: cover;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh; /* Ensure full height of the viewport */
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 0 20px; /* Adjust margin for positioning */
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            box-sizing: border-box;
+        }
+
+        h2 {
+            margin-top: 0;
+            color: #333;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            outline: none;
+        }
+
+        .signup-button {
+            width: 100%;
+            background-color: #1e88e5;
+            color: white;
+            padding: 14px 20px;
+            margin: 14px 0;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            text-decoration: none;
+            display: inline-block;
+            transition: background-color 0.3s ease;
+        }
+
+        .signup-button:hover {
+            background-color: #0d47a1;
+        }
+
+        .login-link {
+            color: #333;
+            text-decoration: none;
+        }
+
+        .login-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Signup to Shipping Website</h2>
+        <form id="signup-form" action="/signup" method="post">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+
+            <button type="submit" class="signup-button">Signup</button>
+        </form>
+
+        <p>Already have an account? <a href="index.html" class="login-link">Login here</a></p>
+    </div>
+</body>
+</html>
